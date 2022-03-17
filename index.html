@@ -1,0 +1,133 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Video Demoireing with Relation-based Temporal Consistency</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  
+<body>
+  <div class="container"> 
+    <span class="title">Video Demoireing with Relation-based Temporal Consistency</span>
+    <span class="subtitle">CVPR 2022</span>
+    <table border="0" align="center" class="authors">
+      <tr align="center">
+        <td><a href="">Peng Dai</a><br />HKU</td>
+        <td><a href="">Xin Yu</a><br />HKU</td>
+        <td><a href="">Lan Ma</a><br />TCL</td>
+        <td> <a href="">Baoheng Zhang</a><br />HKU</td>
+        <td> <a href="">Jia Li</a><br />SYSU</td>
+        <td> <a href="https://scholar.google.com/citations?user=foGn_TIAAAAJ&hl=en">Wenbo Li</a><br />CUHK</td>
+        <td> <a href="">Jiajun shen</a><br />TCL</td>
+        <td> <a href="https://scholar.google.com/citations?user=bGn0uacAAAAJ&hl=en">Xiaojuan Qi</a><br />HKU</td>
+      </tr>
+    </table>
+
+    <table width="200" border="0" align="center">
+      <tr>
+        <td><img src="images/teaser.png" width="800" alt="" /><br /></td>
+      </tr>
+      <tr>
+        <td class="caption">The first row shows moire frames at different times, and
+          the second row is our demoired results. Please see videos, which are clean and temporally consistent.  </td>
+      </tr>
+    </table>
+
+    <p>&nbsp;</p>
+    <span class="section">Abstract</span>
+    <p>Moire patterns, appearing as color distortions, severely degrade the image and video qualities when filming a screen with digital cameras. 
+      Considering the increasing demands for capturing videos, we study how to remove such undesirable moire patterns in videos, namely video demoireing. 
+      To this end, we introduce the first hand-held video demoireing dataset with a dedicated data collection pipeline to ensure spatial and temporal alignments of captured data. 
+      Further, a baseline video demoireing model with implicit feature space alignment and selective feature aggregation is developed to leverage complementary information from nearby frames to improve frame-level video demoireing. 
+      More importantly, we propose a relation-based temporal consistency loss to encourage the model to learn temporal consistency priors directly from ground-truth reference videos,
+      which facilitates producing temporally consistent predictions and effectively maintains frame-level qualities. 
+      Extensive experiments manifest the superiority of our model.
+      <br />
+    </p>
+    
+    <p>&nbsp;</p>
+    <p class="section">Documents</p>
+    <table border="0">
+      <tbody>
+        <tr>
+          <td><img src="images/paper.png" width="100" alt="" /></td>
+          <td>&nbsp;</td>
+          <td>
+            <p>&quot;Video Demoireing with Relation-based Temporal Consistency&quot;,<br/>
+              Peng Dai, Xin Yu, Lan Ma, Baoheng Zhang, Jia Li, Wenbo Li, Jiajun Shen, Xiaojuan Qi<br/>
+              Conference on Computer Vision and Pattern Recongnition (CVPR), 2022</p>
+            <p>[<a href="">Paper</a>]
+              [<a href="">Code</a>]
+              [<a href="">Data_v1</a>]
+              [<a href="">Data_v2</a>]
+              [<a href="">Slides</a>]
+              [<a href="">Poster</a>]
+              [<a href="">Presentation</a>] </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>&nbsp;</p>
+    <p class="section">Video</p>
+      <div style="text-align:center;">
+        <iframe width="926" height="525" src="https://www.youtube.com/embed/73mCqfWobBo" frameborder="0" allow="accelerometer; autoplay; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+    <p class="section">&nbsp;</p>
+    <span class="section">Framework</span>
+    <table width="200" border="0" align="center">
+      <tbody>
+        <tr>
+          <p></p>
+          <td align="center"><img src="images/architecture.png" height="280" alt="" /></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <td class="caption">The overview of our method. 
+        Our video demoireing network mainly consists of three parts: First, the PCD takes consecutive frames as inputs to implicitly align frames in the feature space. 
+        Second, the feature aggregation module (PFA) merges aligned frame features (AF) at different scales by predicting blending weights. 
+        Third, the merged features are sent to the demoire model (Demoire) with dense connections to realize moire artifacts removal.</td>
+    </p>
+
+
+
+    <p class="section">&nbsp;</p>
+    <span class="section">Dataset</span>
+    <table width="200" border="0" align="center">
+      <tbody>
+        <tr>
+          <p></p>
+          <td align="center"><img src="images/pipeline.png" height="170" alt="" /></td>
+        </tr>
+      </tbody>
+    </table>
+    <p align="center" class="caption">The pipeline of producing video demoireing dataset</p>
+    <p class="caption"> <B>Data_v1</B>: it contains 290 videos (720P) of different scenerios, and each video has 60 frames. 
+      The input moire frames and output clean frames are aligned with the homography matrix. </p>
+    <p class="caption"> <B>Data_v2</B>: we refine the aligned frames in "Data_v1" using estimated optical flows (i.e. RAFT) and obtain better aligned training pairs. </p>
+
+
+
+
+
+
+    <p class="section">&nbsp;</p>
+    <p align="center" class="date">Last updated: March 2022</p>
+  </div>
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$']]}
+  });
+  </script>
+</body>
+
+</html>
